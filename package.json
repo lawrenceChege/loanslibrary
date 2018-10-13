@@ -1,0 +1,23 @@
+{
+  "name": "loans",
+  "version": "1.0.0",
+  "description": "\" loan assesement calculationmethods\"\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D \u001b[C\u001b[C\u001b[C\u001b[D\u001b[D\u001b[Dmethods\"",
+  "main": "dist/index.ts",
+  "types": "dist/index.d.ts"
+  "scripts": {
+    "test": "run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com"
+  },
+  "keywords": [
+    "loans"
+  ],
+  "author": "\"/\"",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com"
+  },
+  "homepage": "https://github.com#readme"
+}
