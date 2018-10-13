@@ -1,0 +1,161 @@
+on the date of first drawdown 
+	Draw down 1 amount =
+		if loan type is type 1 
+			draw down 1 amount = draw down 1 amount + balance of loan type 1
+			undrawn balance = undrawn balance - draw down 1 amount
+
+		if loan type is type 2
+			draw down 1 amount = draw down 1 amount + balance of loan type 2
+			undrawn balance = undrawn balance - draw down 1 amount
+
+	Lending fee  = 
+		if interest is serviced
+			lending fee = total loan x lending fee percentage
+		if interest is not serviced
+			lending fee = (total loan x interest rate of loan 1) x lending fee percentage
+		
+		if lending fee is added to loan
+			fee due = fee due + lending fee
+			fee paid = fee paid + lending fees
+			balance of loan 1 = balance of loan 1 + lending fee
+
+		if lending fee is not added to loan
+			fee charged = fee charged + lending fees
+			fee due = fee due + lending fees
+			fee paid = fee paid + lending fees
+			fee outstanding = fee outstanding + lending fees
+
+	Any other fees payable =
+
+		if Other fees are added to loan
+			fee due = fee due + other fees
+			fee paid = fee paid + other fees
+			balance of loan 1 = balance of loan 1 + fee due
+
+		if Other fees are added not added to loan
+			fee charged = fee charged + other fees
+			fee due = fee due + other fees
+			fee paid = fee paid + other fees
+			fee outstanding = fee outstanding + other fees
+			
+
+Midnight on each day
+
+	Loan 1 balance = 
+
+		daily 1 interest = balance of loan 1 x daily rate of loan 1
+		
+		if interest is serviced
+				total interest charged = total interest charged + daily 1 interest
+				total interest due = total interest due + daily 1 interest
+				total interest paid = total interest paid + daily 1 interest
+				total interest outstanding = total interest outstanding + daily 1 interest
+
+		if interest is not serviced
+
+			if interest is compounded
+				total interest charged = total interest charged + daily 1 interest
+				total interest due = total interest due + daily 1 interest
+				total interest paid = total interest paid + daily 1 interest
+ 				balance of loan 1 = balance of loan 1 + daily 1 interest
+
+			if interest is not compounded
+				total interest charged = total interest charged + daily 1 interest
+				total interest not due = total interest not due + daily 1 interest
+				total interest outstanding = total interest outstanding + daily 1 interest
+
+	Loan 2 balance =
+
+		daily 2 interest = balance of loan 2 x daily rate of loan 2
+		
+		if interest is serviced
+				total interest charged = total interest charged + daily 2 interest
+				total interest due = total interest due + daily 2 interest
+				total interest paid = total interest paid + daily 2 interest
+				total interest outstanding = total interest outstanding + daily 2 interest
+
+		if interest is not serviced
+
+			if interest is compounded
+				total interest charged = total interest charged + daily 2 interest
+				total interest not due = total interest not due + daily 2 interest
+				total interest paid = total interest paid + daily 2 interest
+				balance of loan 2 = balance of loan 2 + daily 2 interest
+
+			if interest is not compounded
+				total interest charged = total interest charged + daily 2 interest
+				total interest not due = total interest not due + daily 2 interest
+				total interest outstanding = total interest outstanding + daily 2 interest
+
+	Non-Utilization Interest =
+		daily non-utilization interest = total balance undrawn x daily non utilization rate
+		
+		if interest is serviced
+			total interest charged = total interest charged + daily non-utilization rate
+			total interest due = total interest not due + daily non-utilization rate
+			total interest paid = total interest paid + daily non-utilization rate
+			total interest outstanding = total interest outstanding + daily non-utilization rate
+
+		if interest is not serviced
+
+			if interest is compounded
+				total interest charged = total interest charged + daily non-utilization rate
+				total interest due = total interest not due + daily non-utilization rate
+				total interest paid = total interest paid + daily non-utilization rate
+				balance of loan 1 = balance of loan 1 + daily non-utilizition rate
+
+			if interest is not compounded
+				total interest charged = total interest charged + daily non-utilization rate
+				total interest not due = total interest not due + daily non-utilization rate
+				total interest outstanding = total interest outstanding + daily non-utilization rate
+
+Drawdown date reached
+
+	draw down amount 2 = drawn amount 2
+
+		if loan is type 
+			balance of loan 1 = balance of loan 1 + draw down amount 2
+			undrawn balance = undrawn balance - draw down amount 2
+
+		if loan is type 2
+			balance of loan 2 = balance of loan 2 + draw down amount 2
+			undrawn balance = undrawn balance - draw down amount 2
+
+Repayment date 
+
+	total interest = total interest
+
+	if minimum interest amount is met
+		pass
+
+	if minimum interest amount is not met
+		balancing interest charged = minimum Interest amount - total interest
+		balancing interest due = minimum Interest amount - total interest
+		balancing interest outstanding = minimum Interest amount - total interest
+	
+	Exit fees
+
+		if exit fees is fixed amount
+			fee due = fee due + exit fees
+
+		if exit fees is % of GDV
+			exit fee = exit fee % x GDV
+			fee charged = fee charged + exit fee
+			fee due = fee due + exit fee
+			fee outstanding = fee outstanding + exit fee
+		
+		if exit fees is % of loan
+			exit fee = (total loan + total interest charged)x % fee
+			fee charged = fee charged + exit fee
+			fee due = fee due + exit fee
+			fee outstanding = fee outstanding + exit fee
+
+	All interest not due
+		mark as due
+
+Total interest charged = total interest charged + balancing interest due
+Total interest due = total interest due 
+Total fees due = total fees due 
+Balance of loan outstanding = balance of loan 1 + balance of loan 2
+Total redemption Amount = Balance of loan outstanding + total interest due + total fees due
+			
