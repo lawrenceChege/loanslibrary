@@ -1,9 +1,9 @@
 {
   "name": "loans",
   "version": "1.0.0",
-  "description": "\" loan assesement calculationmethods\"\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D \u001b[C\u001b[C\u001b[C\u001b[D\u001b[D\u001b[Dmethods\"",
+  "description": "loan assesement calculation methods",
   "main": "dist/index.ts",
-  "types": "dist/index.d.ts"
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "run"
   },
@@ -19,5 +19,13 @@
   "bugs": {
     "url": "https://github.com"
   },
-  "homepage": "https://github.com#readme"
+  "homepage": "https://github.com#readme",
+  "devDependencies": {
+    "@types/chai": "^4.1.6",
+    "@types/mocha": "^5.2.5",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.3"
+  }
 }
